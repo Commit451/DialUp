@@ -7,12 +7,9 @@ Android internet connectivity changes with RxJava 2
 To start listening for connectivity change events:
 ```java
 DialUp.listen(this)
-    .subscribeOn(Schedulers.io())
-    .observeOn(AndroidSchedulers.mainThread())
     .subscribe(new Observer<Boolean>() {
         @Override
         public void onSubscribe(Disposable d) {
-
         }
 
         @Override
@@ -24,12 +21,11 @@ DialUp.listen(this)
 
         @Override
         public void onError(Throwable e) {
-            Log.e("TAG", "fail", e);
+            //oh no! This is unlikely to happen though
         }
 
         @Override
         public void onComplete() {
-
         }
     });
 ```
@@ -41,7 +37,12 @@ To simply check connectivity:
 boolean connected = DialUp.status(context);
 ```
 
-Please note that connectivity is reported by the device and does not always reflect the ability to reach a server. For example, a user could have Wifi enabled and connected, but not be provisioned correctly on the network and DialUp does not know about this.
+# Notes
+- Connectivity is reported by the device and does not always reflect the ability to reach a server. For example, a user could have Wifi enabled and connected, but not be provisioned correctly on the network and DialUp does not know about this.
+- When you first subscribe, you will get an immediate status of the network.
+
+# Acknowledgements
+DialUp was inspired by [rxnetwork-android](https://github.com/Laimiux/rxnetwork-android) and modified a bit to make it work with RxJava 2.
 
 License
 --------
