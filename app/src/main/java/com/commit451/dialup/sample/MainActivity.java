@@ -10,9 +10,7 @@ import android.widget.TextView;
 import com.commit451.dialup.DialUp;
 
 import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
                 .subscribe(new Observer<Boolean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
                     }
 
                     @Override
@@ -44,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onComplete() {
-
                     }
                 });
 
