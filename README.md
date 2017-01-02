@@ -4,6 +4,7 @@ Android internet connectivity changes with RxJava 2
 [![Build Status](https://travis-ci.org/Commit451/DialUp.svg?branch=master)](https://travis-ci.org/Commit451/DialUp) [![](https://jitpack.io/v/Commit451/DialUp.svg)](https://jitpack.io/#Commit451/DialUp)
 
 # Usage
+To start listening for connectivity change events:
 ```java
 DialUp.listen(this)
     .subscribeOn(Schedulers.io())
@@ -33,7 +34,14 @@ DialUp.listen(this)
     });
 ```
 
-It is recommended that you use some method to cancel the listen when the activity or fragment is destroyed. [RxLifecycle](https://github.com/trello/RxLifecycle) is a great tool for this.
+It is recommended that you use some method to cancel the subscription when the activity or fragment is destroyed so that the `BroadcastReceiver` gets unregistered. [RxLifecycle](https://github.com/trello/RxLifecycle) is a great tool for this.
+
+To simply check connectivity:
+```java
+boolean connected = DialUp.status(context);
+```
+
+Please note that connectivity is reported by the device and does not always reflect the ability to reach a server. For example, a user could have Wifi enabled and connected, but not be provisioned correctly on the network and DialUp does not know about this.
 
 License
 --------
