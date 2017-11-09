@@ -1,40 +1,25 @@
 # DialUp
-Android internet connectivity changes with RxJava 2
+Listen for internet connectivity changes with RxJava
 
 [![Build Status](https://travis-ci.org/Commit451/DialUp.svg?branch=master)](https://travis-ci.org/Commit451/DialUp) [![](https://jitpack.io/v/Commit451/DialUp.svg)](https://jitpack.io/#Commit451/DialUp)
 
 # Usage
 To start listening for connectivity change events:
-```java
-DialUp.listen(this)
-    .subscribe(new Observer<Boolean>() {
-        @Override
-        public void onSubscribe(Disposable d) {
+```kotlin
+val textView = findViewById<TextView>(R.id.status)
+DialUp.observable(this)
+        .subscribe { connected ->
+            Snackbar.make(root, "Connectivity changed to: $connected", Snackbar.LENGTH_LONG)
+                    .show()
+            textView.text = "Connected: $connected"
         }
-
-        @Override
-        public void onNext(Boolean aBoolean) {
-            Snackbar.make(root, "Status changed to " + aBoolean, Snackbar.LENGTH_LONG)
-                    .show();
-            textView.setText("Connected: " + aBoolean);
-        }
-
-        @Override
-        public void onError(Throwable e) {
-            //oh no! This is unlikely to happen though
-        }
-
-        @Override
-        public void onComplete() {
-        }
-    });
 ```
 
 It is recommended that you use some method to cancel the subscription when the activity or fragment is destroyed so that the `BroadcastReceiver` gets unregistered. [RxLifecycle](https://github.com/trello/RxLifecycle) is a great tool for this.
 
 To simply check connectivity:
-```java
-boolean connected = DialUp.status(context);
+```kotlin
+val connected = DialUp.isConnected(context)
 ```
 
 # Notes
@@ -42,7 +27,7 @@ boolean connected = DialUp.status(context);
 - When you first subscribe, you will get an immediate status of the network.
 
 # Acknowledgements
-DialUp was inspired by [rxnetwork-android](https://github.com/Laimiux/rxnetwork-android) and modified a bit to make it work with RxJava 2.
+DialUp uses [BroadcastReceiverObservable](https://github.com/Commit451/BroadcastReceiverObservable) as its base. See that project if you want to create other RxJava observables from Broadcasts
 
 License
 --------
