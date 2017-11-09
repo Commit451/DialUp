@@ -33,7 +33,7 @@ dependencies {
 
     api 'io.reactivex.rxjava2:rxjava:2.1.6'
 
-    api 'com.github.Commit451:BroadcastReceiverObservable:1.0.0'
+    api 'com.github.Commit451:BroadcastReceiverObservable:1.0.1'
 }
 
 apply from: 'https://raw.githubusercontent.com/Commit451/gradle-android-javadocs/1.0.0/gradle-android-javadocs.gradle'
