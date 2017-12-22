@@ -3,6 +3,11 @@ Listen for internet connectivity changes with RxJava
 
 [![Build Status](https://travis-ci.org/Commit451/DialUp.svg?branch=master)](https://travis-ci.org/Commit451/DialUp) [![](https://jitpack.io/v/Commit451/DialUp.svg)](https://jitpack.io/#Commit451/DialUp)
 
+# Dependency 
+In order to include DialUp as a dependency, you will need to also include [BroadcastReceiverObservable](https://github.com/Commit451/BroadcastReceiverObservable):
+
+[![](https://jitpack.io/v/Commit451/BroadcastReceiverObservable.svg)](https://jitpack.io/#Commit451/BroadcastReceiverObservable)
+
 # Usage
 To start listening for connectivity change events:
 ```kotlin
