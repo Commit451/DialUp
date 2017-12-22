@@ -2,12 +2,11 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 27
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -27,11 +26,11 @@ android {
 
 dependencies {
 
-    api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.android.support:support-annotations:26.1.0'
+    implementation 'com.android.support:support-annotations:27.0.2'
 
-    api 'io.reactivex.rxjava2:rxjava:2.1.6'
+    api 'io.reactivex.rxjava2:rxjava:2.1.7'
 
     api 'com.github.Commit451:BroadcastReceiverObservable:1.0.1'
 }
