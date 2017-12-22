@@ -1,14 +1,14 @@
 # DialUp
-Listen for internet connectivity changes with RxJava
+Listen for Android internet connectivity changes with RxJava
 
 [![Build Status](https://travis-ci.org/Commit451/DialUp.svg?branch=master)](https://travis-ci.org/Commit451/DialUp) [![](https://jitpack.io/v/Commit451/DialUp.svg)](https://jitpack.io/#Commit451/DialUp)
 
-# Dependency 
+## Dependency 
 In order to include DialUp as a dependency, you will need to also include [BroadcastReceiverObservable](https://github.com/Commit451/BroadcastReceiverObservable):
 
 [![](https://jitpack.io/v/Commit451/BroadcastReceiverObservable.svg)](https://jitpack.io/#Commit451/BroadcastReceiverObservable)
 
-# Usage
+## Usage
 To start listening for connectivity change events:
 ```kotlin
 val textView = findViewById<TextView>(R.id.status)
@@ -27,12 +27,12 @@ To simply check connectivity:
 val connected = DialUp.isConnected(context)
 ```
 
-# Notes
+## Notes
 - Connectivity is reported by the device and does not always reflect the ability to reach a server. For example, a user could have Wifi enabled and connected, but not be provisioned correctly on the network and DialUp does not know about this.
 - When you first subscribe, you will get an immediate status of the network.
 
-# Acknowledgements
-DialUp uses [BroadcastReceiverObservable](https://github.com/Commit451/BroadcastReceiverObservable) as its base. See that project if you want to create other RxJava observables from Broadcasts
+## Acknowledgements
+DialUp uses [BroadcastReceiverObservable](https://github.com/Commit451/BroadcastReceiverObservable) as its base. See that project if you want to create other RxJava observables from Android Broadcasts
 
 License
 --------
