@@ -5,10 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
-import android.support.annotation.RequiresPermission
+import androidx.annotation.RequiresPermission
 import com.commit451.broadcastreceiverobservable.BroadcastReceiverObservable
-
-import io.reactivex.Observable
+import io.reactivex.rxjava3.core.Observable
 
 /**
  * Are you online?
@@ -34,7 +33,7 @@ object DialUp {
         val filter = IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         return BroadcastReceiverObservable.create(applicationContext, filter)
                 // To get initial connectivity status
-                .startWith(Intent())
+                .startWithItem(Intent())
                 .map { isConnected(applicationContext) }
                 .distinctUntilChanged()
     }
